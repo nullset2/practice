@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    static Trie trie = new Trie();
+    private static Trie trie = new Trie();
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
