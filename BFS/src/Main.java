@@ -23,7 +23,7 @@ public class Main {
                 int u = sc.nextInt();
                 int v = sc.nextInt();
 
-                graph[u][v] = MAGIC_NUMBER;
+                graph[u-1][v-1] = MAGIC_NUMBER;
             }
 
             int s = sc.nextInt();
@@ -33,13 +33,13 @@ public class Main {
         }
     }
 
-    private static void BFS(int[][] graph, int n, boolean[] visited, int[] parent) {
+    private static int BFS(int[][] graph, int n, boolean[] visited, int[] parent) {
         if(queue.isEmpty()) return;
 
         int currentIndex = queue.remove();
         visited[currentIndex] = true;
 
-        System.out.println(currentIndex);
+        System.out.println(currentIndex+1);
 
         for (int i = 0; i < n; i++) {
             if (graph[currentIndex][i] == MAGIC_NUMBER && !visited[i]){
@@ -48,7 +48,7 @@ public class Main {
             }
         }
 
-        if(!queue.isEmpty()) return BFS(graph, n, visited, parent);
+        if(!queue.isEmpty()) BFS(graph, n, visited, parent);
         return;
     }
 }
