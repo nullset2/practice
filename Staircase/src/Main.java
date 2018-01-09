@@ -8,36 +8,30 @@ public class Main {
 
     private static HashMap<Integer, Integer> solutionMap = new HashMap<>();
 
-    public static int _findNumberOfSolutions(int s, int stepsSoFar) {
-        if (stepsSoFar == s)
-            return 1;
-        else if (stepsSoFar > s)
-            return 0;
+    public static void computeSolutions(int limit){
+        solutionMap.put(0, 1);
+        solutionMap.put(1, 1);
+        solutionMap.put(2, 2);
 
-        int solutions = _findNumberOfSolutions(s, stepsSoFar + 1)
-                + _findNumberOfSolutions(s, stepsSoFar + 2)
-                + _findNumberOfSolutions(s, stepsSoFar + 3);
-
-        solutionMap.put(s, solutions);
-
-        return solutions;
+        for(int i = 3; i <= limit; i++){
+            solutionMap.put(i, solutionMap.get(i - 1) + solutionMap.get(i - 2) + solutionMap.get(i - 3));
+        }
     }
 
-    public static int findNumberOfSolutions(int s) {
-        return _findNumberOfSolutions(s, 0);
+    public static int findSolutions(int n){
+        if(solutionMap.containsKey(n))  return solutionMap.get(n);
+        return 1;
     }
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int s = in.nextInt();
-        for (int a0 = 0; a0 < s; a0++) {
+        computeSolutions(36);
+        for(int a0 = 0; a0 < s; a0++){
             int n = in.nextInt();
-            int solutions = 0;
-            if (solutionMap.containsKey(n))
-                solutions = solutionMap.get(n);
-            else
-                solutions = findNumberOfSolutions(n);
-            System.out.println(solutions);
+            System.out.println(findSolutions(n));
         }
     }
 }
+
+
