@@ -13,7 +13,7 @@ public class Suit {
         this.type = type;
         this.cards = new ArrayList<>();
 
-        for(int i = 0; i <= MAX_RANK; i++)
+        for(int i = 0; i < MAX_RANK-1; i++)
             cards.add(new Card(i, type));
     }
 

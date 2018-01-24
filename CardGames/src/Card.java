@@ -1,21 +1,23 @@
 public class Card {
-    public final static int ACE = 12;
-    public final static int JACK = 9;
-    public final static int QUEEN = 10 ;
-    public final static int KING= 11;
+    //non zero-based to use as symbols in other places for readability
+    public final static int JACK = 11;
+    public final static int QUEEN = 12;
+    public final static int KING= 13;
+    public final static int ACE = 14;
 
     private int rank;
     private SuitType type;
+
     public Card(int rank, SuitType type) {
         this.rank = rank;
         this.type = type;
     }
 
     public int getRank() {
-        return rank;
+        return rank+2;//offsetting to account for 0-based and ace
     }
 
-    public SuitType getType() {
-        return type;
+    public String getType(){
+        return this.type.toString().toLowerCase();
     }
 }
