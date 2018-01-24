@@ -14,4 +14,8 @@ public class Deck {
            this.suits.add(new Suit(type));
         }
     }
+
+    public Card getCard(Rank rank, SuitType suit){
+        return this.suits.get(suit.ordinal()).getCard(rank);
+    }
 }

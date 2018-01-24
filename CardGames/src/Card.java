@@ -14,4 +14,8 @@ public class Card {
     public String getType() {
         return this.type.toString().toLowerCase();
     }
+
+    public boolean greaterThan(Card card) {
+        return this.rank.ordinal() > card.rank.ordinal();
+    }
 }

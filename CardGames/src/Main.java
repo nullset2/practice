@@ -8,5 +8,7 @@ public class Main {
                 System.out.println(String.format("%s of %s", card.getRank(), card.getType()));
             }
         }
+
+        System.out.println(deck.getCard(Rank.TWO, SuitType.SPADES).greaterThan(deck.getCard(Rank.THREE, SuitType.HEARTS)));
     }
 }

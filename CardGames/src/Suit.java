@@ -16,4 +16,7 @@ public class Suit {
             cards.add(new Card(rank, type));
     }
 
+    public Card getCard(Rank rank) {
+        return this.cards.get(rank.ordinal());
+    }
 }
